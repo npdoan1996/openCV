@@ -17,7 +17,7 @@ while True:
     roiGray = cv2.cvtColor(roi,cv2.COLOR_BGR2GRAY)
     roiGray = cv2.cvtColor(roiGray,cv2.COLOR_GRAY2BGR)
     frame[50:250,200:400] = roiGray
-    
+
     cv2.imshow('ROI', roi)
     cv2.imshow('nanoCam',frame)
     cv2.imshow('grayROI',roiGray)
