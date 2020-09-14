@@ -1,0 +1,29 @@
+===Color format: (BLUE,GREEN,RED)=== 
+
+===Grab a frame then show it===
+ret, frame = cam.read()         // read a frame
+cv2.imshow('nanoCam',frame)     // show a frame
+cv2.moveWindow('nanoCam',0,0)   // move the Window
+
+===Key Event===
+    keyEvent = cv2.waitKey(1)
+        if keyEvent==ord('q'):
+            break
+
+===Mouse Event===
+    def click(event,x,y,flag,params): 
+        global pnt
+        global evt
+        if event==cv2.EVENT_LBUTTONDOWN:
+            pnt=(x,y)
+            evt=event
+    cv2.setMouseCallback('nanoCam',click)
+
+===Draw a rectangle=== 
+frame=cv2.rectangle(frame,(posX,posY),(posX+BW,posY+BH),(255,0,0),-1) 
+++more in the drawing file
+
+===Writing a text===
+    font=cv2.FONT_HERSHEY_PLAIN
+    myStr=str(pnts)
+    cv2.putText(frame,myStr,pnts,font,1.5,(255,0,0),2)
