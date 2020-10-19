@@ -60,10 +60,10 @@ while True:
 
     contours,_ = cv2.findContours(FGmaskComp,cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = sorted(contours,key=lambda x:cv2.contourArea(x), reverse=True)
-    for cnt in contours:
+    for cnt in contours[0:4]:
         area = cv2.contourArea(cnt)
         (x,y,w,h) = cv2.boundingRect(cnt)
-        if area >= 50: 
+        if area >= 100: 
             #cv2.drawContours(frame,[cnt],0,(255,0,0),3)
             cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
 
